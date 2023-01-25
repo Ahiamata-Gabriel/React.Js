@@ -14,6 +14,13 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.Cards-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+}
+
 .Logo-container {
   display: flex;
   align-items: center;
