@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Karla', sans-serif;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background-color: #121212;
+  overflow-x: hidden;
+}
+
+.App {
+  width: 550px;
+  /* height: 550px; */
+  background-color: #fff;
+  padding-bottom: 2rem;
+}
+
+.Header {
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+.Header--img {
+  width: 40px;
+  height: 40px;
+}
+.Header--title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20.7482px;
+  line-height: 24px;
+  letter-spacing: -0.1em;
+  color: #ffffff;
+  padding-left: 1rem;
+}
+
+.Header--phrase {
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: right;
+  color: #ffffff;
+}
+
+.Inputs-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem;
+}
+
+.Form--input {
+  width: 200px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #d5d4d8;
+  text-indent: 5px;
+}
+
+.form--input:active {
+  border: none;
+}
+
+.Form--btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Form-Btn {
+  width: 430px;
+  height: 40px;
+  align-self: center;
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Karla', sans-serif;
+  border: none;
+  cursor: pointer;
+}
+.Meme--img-container {
+  margin: 4rem 5.5rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.top-text {
+  position: absolute;
+  top: 0.5rem;
+}
+
+.top-bottom {
+  position: absolute;
+  bottom: 0.5rem;
+}
+
+.Meme--img {
+  max-width: 100%;
+}
