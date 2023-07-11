@@ -34,14 +34,12 @@ const SignInForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
       SetCurrentUser(user);
-
       resetFormFields();
     } catch (error) {
       switch (error.code) {
