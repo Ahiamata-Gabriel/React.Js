@@ -1,0 +1,39 @@
+$header-color: #fff7ed;
+$links-color: #4d4d4d;
+
+.Container {
+  margin: 0 auto 0 auto;
+  max-width: 800px;
+
+  .Header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    background-color: $header-color;
+    height: 111.62px;
+    display: flex;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      padding-right: 10px;
+      color: $links-color;
+      text-align: right;
+      font-family: Inter;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.43269rem;
+    }
+
+    .Navbar-logo {
+      color: #000;
+      font-family: Inter;
+      font-size: 1.1rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 2.51694rem; /* 158.842% */
+    }
+  }
+}
