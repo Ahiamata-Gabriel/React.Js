@@ -1,8 +1,10 @@
 import './App.scss';
-import Home from './components/Home';
-import About from './Components/About';
-import Vans from './components/Vans';
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Vans from './components/Vans/Vans';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+import './server';
 
 function App() {
   return (
