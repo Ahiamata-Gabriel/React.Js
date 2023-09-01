@@ -1,7 +1,3 @@
-$simple: #e17654;
-$rugged: #115e59;
-$luxury: #161616;
-
 .van-list-container {
   margin-top: 20px;
   padding: 0 33px;
@@ -39,6 +35,10 @@ $luxury: #161616;
       }
 
       .van-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
         h3 {
           color: #161616;
           font-family: Inter;
@@ -49,65 +49,57 @@ $luxury: #161616;
         }
 
         p {
+          color: #161616;
+          text-align: right;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 31.662px; /* 158.308% */
           margin-bottom: 10px;
         }
+      }
+
+      i {
+        border-radius: 5px;
+        width: 85.711px;
+        height: 33.886px;
+        flex-shrink: 0;
+        color: #ffead0;
+        text-align: center;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 31.662px; /* 197.885% */
+        padding: 7px 15px;
+      }
+
+      .simple {
+        background-color: #e17654;
+      }
+
+      .luxury {
+        background-color: #161616;
+      }
+
+      .rugged {
+        background-color: #115e59;
       }
     }
   }
 }
 
-.van-type {
-  height: 34px;
-  padding: 6px 26px;
-  font-style: normal;
-  font-weight: 500;
-  border: none;
-  border-radius: 5px;
-  background-color: #ffead0;
-  color: #4d4d4d;
-  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
-}
+// @mixin theme($btn-background-color: #e17654) {
+//   background-color: $btn-background-color;
+// }
 
-.van-type:hover {
-  color: #ffead0;
-}
-
-.van-type:focus {
-  outline: none;
-}
-
-.van-type.selected {
-  color: #ffead0;
-}
-
-.van-type.simple:hover,
-.van-type.simple.selected {
-  background-color: #e17654;
-}
-
-.van-type.rugged:hover,
-.van-type.rugged.selected {
-  background-color: #115e59;
-}
-
-.van-type.luxury:hover,
-.van-type.luxury.selected {
-  background-color: #161616;
-}
-
-.van-type.clear-filters {
-  margin-left: -20px;
-  height: 34px;
-  padding: 6px 26px;
-  font-style: normal;
-  font-weight: 500;
-  border: none;
-  border-radius: 5px;
-  text-decoration: underline;
-  background-color: transparent;
-  color: #4d4d4d;
-}
-
-i[class*='van-type-'] {
-  padding: 7px 14px;
-}
+// .simple {
+//   @include theme;
+// }
+// .luxury {
+//   @include theme($btn-background-color: #161616);
+// }
+// .rugged {
+//   @include theme($btn-background-color: #115e59);
+// }
