@@ -1,0 +1,77 @@
+.van-detail-container {
+  h6 {
+    margin-bottom: 20px;
+  }
+
+  .van-detail {
+    padding: 20px;
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    i {
+      color: #ffead0;
+      text-align: center;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 31.662px; /* 197.885% */
+      padding: 7px 15px;
+      border-radius: 5px;
+    }
+
+    h2 {
+      color: #161616;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 33.652px; /* 105.164% */
+    }
+
+    .van-price {
+      color: #161616;
+      font-family: Inter;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 44.152px; /* 183.967% */
+    }
+    p {
+      color: #161616;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 23.919px; /* 149.496% */
+    }
+
+    button {
+      border-radius: 4.983px;
+      background: #ff8c38;
+      padding: 7px 30px;
+      color: #fff;
+      text-align: center;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 31.662px; /* 175.898% */
+    }
+  }
+}
+
+.simple {
+  background-color: #e17654;
+}
+
+.luxury {
+  background-color: #161616;
+}
+
+.rugged {
+  background-color: #115e59;
+}
