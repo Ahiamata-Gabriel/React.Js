@@ -1,31 +1,30 @@
 import './App.scss';
-import Home from './components/Home/Home';
-import About from './components/About/About';
-import Vans from './components/Vans/Vans';
-import VanDetails from './components/VanDetails/VanDetails';
-import { Routes, Route, Link } from 'react-router-dom';
+import Layout from './Components/Layout';
+import Home from './Pages/Home/Home';
+import About from './Pages/About/About';
+import Vans from './Pages/Vans/Vans';
+import VanDetails from './Pages/VanDetails/VanDetails';
+import Dashboard from './Pages/Host/Dashboard';
+import Reviews from './Pages/Host/Reviews';
+import Income from './Pages/Host/Income';
+import { Routes, Route } from 'react-router-dom';
 
 import './server';
 
 function App() {
   return (
     <div className="Container">
-      <header className="Header">
-        <Link to="/" className="Navbar-logo">
-          #VANLIFE
-        </Link>
-        <nav className="Navbar">
-          <div className="Navbar-Links">
-            <Link to="/about">About</Link>
-            <Link to="/vans">Vans</Link>
-          </div>
-        </nav>
-      </header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetails />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/host" element={<Dashboard />}>
+            <Route path="/host/income" element={<Income />} />
+            <Route path="/host/reviews" element={<Reviews />} />
+          </Route>
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetails />} />
+        </Route>
       </Routes>
     </div>
   );
