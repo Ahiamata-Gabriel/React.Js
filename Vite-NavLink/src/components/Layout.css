@@ -1,0 +1,25 @@
+nav {
+  display: flex;
+  align-items: center;
+}
+
+a {
+  padding-right: 10px;
+  text-decoration: none;
+  color: #4d4d4d;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22.923px; /* 127.348% */
+}
+
+a:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.active {
+  color: goldenrod;
+  text-decoration: underline;
+}
