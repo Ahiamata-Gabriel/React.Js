@@ -1,0 +1,105 @@
+.van-list-container {
+  margin-top: 20px;
+  padding: 0 33px;
+
+  h1 {
+    color: #161616;
+    font-family: Inter;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 33.652px; /* 105.164% */
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .van-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px 0;
+
+    .van-tile {
+      padding: 0 30px;
+
+      a {
+        color: #161616;
+        text-decoration: none;
+      }
+
+      img {
+        margin-top: 30px;
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .van-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+          color: #161616;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 31.662px; /* 158.308% */
+        }
+
+        p {
+          color: #161616;
+          text-align: right;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 31.662px; /* 158.308% */
+          margin-bottom: 10px;
+        }
+      }
+
+      i {
+        border-radius: 5px;
+        width: 85.711px;
+        height: 33.886px;
+        flex-shrink: 0;
+        color: #ffead0;
+        text-align: center;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 31.662px; /* 197.885% */
+        padding: 7px 15px;
+      }
+
+      .simple {
+        background-color: #e17654;
+      }
+
+      .luxury {
+        background-color: #161616;
+      }
+
+      .rugged {
+        background-color: #115e59;
+      }
+    }
+  }
+}
+
+// @mixin theme($btn-background-color: #e17654) {
+//   background-color: $btn-background-color;
+// }
+
+// .simple {
+//   @include theme;
+// }
+// .luxury {
+//   @include theme($btn-background-color: #161616);
+// }
+// .rugged {
+//   @include theme($btn-background-color: #115e59);
+// }
