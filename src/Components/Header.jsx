@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Header.scss';
-import Host from '../Pages/Host/Dashboard';
 
 const Header = () => {
   return (
@@ -11,9 +10,24 @@ const Header = () => {
         </Link>
         <nav className="Navbar">
           <div className="Navbar-Links">
-            <Link to="./host">Host</Link>
-            <Link to="/about">About</Link>
-            <Link to="/vans">Vans</Link>
+            <NavLink
+              to="./host"
+              className={({ isActive }) => (isActive ? 'Active' : null)}
+            >
+              Host
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? 'Active' : null)}
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/vans"
+              className={({ isActive }) => (isActive ? 'Active' : null)}
+            >
+              Vans
+            </NavLink>
           </div>
         </nav>
       </header>

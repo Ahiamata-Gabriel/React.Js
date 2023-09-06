@@ -1,0 +1,26 @@
+nav {
+  display: flex;
+  align-items: center;
+
+  a {
+    padding-right: 10px;
+    text-decoration: none;
+    color: #4d4d4d;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.923px; /* 127.348% */
+
+    &:hover {
+      text-decoration: underline;
+      font-weight: 700;
+    }
+  }
+
+  .Active {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #161616;
+  }
+}
