@@ -8,6 +8,7 @@ import HostLayout from './Components/HostLayout';
 import Dashboard from './Pages/Host/Dashboard';
 import Reviews from './Pages/Host/Reviews';
 import Income from './Pages/Host/Income';
+import Vanss from './components/Vanss';
 import { Routes, Route } from 'react-router-dom';
 
 import './server';
@@ -24,8 +25,8 @@ function App() {
           <Route path="host" element={<HostLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
-            {/* <Route path="vanss" element={<Vanss />} /> */}
             <Route path="reviews" element={<Reviews />} />
+            <Route path="vanss" element={<Vanss />} />
           </Route>
         </Route>
       </Routes>
