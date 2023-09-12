@@ -8,7 +8,11 @@ import HostLayout from './Components/HostLayout';
 import Dashboard from './Pages/Host/Dashboard';
 import Reviews from './Pages/Host/Reviews';
 import Income from './Pages/Host/Income';
-import Vanss from './components/Vanss';
+import HostVans from './components/HostVans';
+import HostVanDetails from './components/HostVanDetails';
+import HostVanPricing from './components/HostVanPricing';
+import HostVanInfo from './components/HostVanInfo';
+import HostVanPhotos from './components/HostVanPhotos';
 import { Routes, Route } from 'react-router-dom';
 
 import './server';
@@ -22,11 +26,18 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetails />} />
+
           <Route path="host" element={<HostLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
             <Route path="reviews" element={<Reviews />} />
-            <Route path="vanss" element={<Vanss />} />
+            <Route path="vans" element={<HostVans />} />
+
+            <Route path="vans/:id" element={<HostVanDetails />}>
+              <Route index element={<HostVanInfo />} />
+              <Route path="pricing" element={<HostVanPricing />} />
+              <Route path="photo" element={<HostVanPhotos />} />
+            </Route>
           </Route>
         </Route>
       </Routes>
