@@ -56,7 +56,7 @@ const HostVanDetails = () => {
       ) : (
         <h2>Loading...</h2>
       )}
-      <Outlet />
+      <Outlet context={{ van }} />
     </div>
   );
 };
