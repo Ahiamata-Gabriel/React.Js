@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import './Vans.scss';
 
 const Vans = () => {
@@ -42,15 +42,16 @@ const Vans = () => {
     <div className="van-list-container">
       <h1>Explore our van options</h1>
       <div className="FilterLinks">
-        <NavLink className="simple" to="?type=simple">
+        {/* CHECK BELOW FOR METHOD 2 INCASE OF USING SETTER FUNCTION */}
+        <Link className="simple" to="?type=simple">
           Simple
-        </NavLink>
-        <NavLink className="rugged" to="?type=rugged">
+        </Link>
+        <Link className="rugged" to="?type=rugged">
           Rugged
-        </NavLink>
-        <NavLink className="luxury" to="?type=luxury">
+        </Link>
+        <Link className="luxury" to="?type=luxury">
           Luxury
-        </NavLink>
+        </Link>
         <Link className="Clear" to=".">
           Clear Filters
         </Link>
@@ -61,3 +62,34 @@ const Vans = () => {
 };
 
 export default Vans;
+
+/* **** METHOD 2 for navigation searchParams *****
+  (Using the setter function of searchParams) 
+  ince button is not part of the react-router-dom ecosystem like Link*/
+
+//   <button onClick={() => setSearchParams({ type: 'simple' })}>
+//   Simple
+// </button>
+// <button onClick={() => setSearchParams({ type: 'rugged' })}>
+//   rugged
+// </button>
+// <button onClick={() => setSearchParams({ type: 'luxury' })}>
+//   luxury
+// </button>
+// <button onClick={() => setSearchParams({})}>Clear</button>
+
+// NB: A string can be passed directly into the setter function
+//eg:  <button onClick={() => setSearchParams("?type=luxury" )}>
+//         luxury
+//      </button>
+
+// **** MORE INFO ****
+{
+  /* <button onClick={setSearchParams({ type: 'simple' })}>
+   Simple
+ </button> */
+}
+//  Using the setter function this  way is wrong because the
+//   function is immidiately called when the component mounts.
+//   Make sure to call it properly linke how it is done in METHOD 2.
+//   in that case, the function get called only when the button is clicked
