@@ -42,7 +42,7 @@ const Vans = () => {
     <div className="van-list-container">
       <h1>Explore our van options</h1>
       <div className="FilterLinks">
-        {/* CHECK BELOW FOR METHOD 2 INCASE OF USING SETTER FUNCTION */}
+        {/* METHOD 1 */}
         <Link className="simple" to="?type=simple">
           Simple
         </Link>
@@ -55,6 +55,20 @@ const Vans = () => {
         <Link className="Clear" to=".">
           Clear Filters
         </Link>
+      </div>
+
+      {/* METHOD 2 */}
+      <div className="FilterLinks">
+        <button onClick={() => setSearchParams({ type: 'simple' })}>
+          Simple
+        </button>
+        <button onClick={() => setSearchParams({ type: 'rugged' })}>
+          rugged
+        </button>
+        <button onClick={() => setSearchParams({ type: 'luxury' })}>
+          luxury
+        </button>
+        <button onClick={() => setSearchParams({})}>Clear</button>
       </div>
       <div className="van-list">{vanElements}</div>
     </div>
