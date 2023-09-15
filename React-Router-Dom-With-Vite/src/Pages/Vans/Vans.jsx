@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, NavLink, useSearchParams } from 'react-router-dom';
 import './Vans.scss';
 
 const Vans = () => {
@@ -8,8 +8,6 @@ const Vans = () => {
 
   const typeFilter = searchParams.get('type');
 
-  console.log(typeFilter);
-
   useEffect(() => {
     fetch('/api/vans')
       .then((response) => response.json())
@@ -17,11 +15,14 @@ const Vans = () => {
       .catch((error) => console.error(error));
   }, []);
 
-  const displayedVans = typeFilter
+  // if there is a typeFilter,
+  // then filter and display vans base on the type,
+  // else display all vans
+  const vansToDisplay = typeFilter
     ? vans.filter((van) => van.type.toLowerCase() === typeFilter)
     : vans;
 
-  const vanElements = displayedVans.map((van) => (
+  const vanElements = vansToDisplay.map((van) => (
     <div key={van.id} className="van-tile">
       <Link to={`/vans/${van.id}`}>
         <img src={van.imageUrl} />
@@ -40,6 +41,20 @@ const Vans = () => {
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>
+      <div className="FilterLinks">
+        <NavLink className="simple" to="?type=simple">
+          Simple
+        </NavLink>
+        <NavLink className="rugged" to="?type=rugged">
+          Rugged
+        </NavLink>
+        <NavLink className="luxury" to="?type=luxury">
+          Luxury
+        </NavLink>
+        <Link className="Clear" to=".">
+          Clear Filters
+        </Link>
+      </div>
       <div className="van-list">{vanElements}</div>
     </div>
   );

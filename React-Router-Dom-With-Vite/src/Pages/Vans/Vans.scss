@@ -18,7 +18,7 @@
   .van-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 30px 0;
+    padding: 15px 0;
 
     .van-tile {
       padding: 0 30px;
@@ -88,18 +88,45 @@
       }
     }
   }
+
+  .FilterLinks {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+
+    a {
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-decoration: none;
+      color: #4d4d4d;
+      text-align: center;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 23.919px; /* 149.496% */
+      border-radius: 5px;
+      background: #ffead0;
+    }
+
+    .simple:hover {
+      background-color: #e17654;
+      color: #ffead0;
+    }
+
+    .luxury:hover {
+      background-color: #161616;
+      color: #ffead0;
+    }
+
+    .rugged:hover {
+      background-color: #115e59;
+      color: #ffead0;
+    }
+
+    .Clear {
+      text-decoration: underline;
+      background: #fff7ed;
+    }
+  }
 }
-
-// @mixin theme($btn-background-color: #e17654) {
-//   background-color: $btn-background-color;
-// }
-
-// .simple {
-//   @include theme;
-// }
-// .luxury {
-//   @include theme($btn-background-color: #161616);
-// }
-// .rugged {
-//   @include theme($btn-background-color: #115e59);
-// }
