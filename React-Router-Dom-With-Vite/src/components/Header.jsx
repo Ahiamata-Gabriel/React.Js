@@ -11,7 +11,7 @@ const Header = () => {
         <nav className="Navbar">
           <div className="Navbar-Links">
             <NavLink
-              to=" /host"
+              to="/host"
               className={({ isActive }) => (isActive ? 'Active' : null)}
             >
               Host
