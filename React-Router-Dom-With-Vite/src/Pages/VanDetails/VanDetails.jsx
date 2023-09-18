@@ -15,7 +15,7 @@ const VanDetails = () => {
 
   return (
     <div className="van-detail-container">
-      <Link to="/vans">
+      <Link to=".." relative="path">
         <h6>🔙Back to all vans</h6>
       </Link>
 

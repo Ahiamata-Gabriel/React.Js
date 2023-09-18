@@ -24,7 +24,7 @@ const Vans = () => {
 
   const vanElements = vansToDisplay.map((van) => (
     <div key={van.id} className="van-tile">
-      <Link to={`/vans/${van.id}`}>
+      <Link to={van.id}>
         <img src={van.imageUrl} />
         <div className="van-info">
           <h3>{van.name}</h3>
@@ -38,37 +38,71 @@ const Vans = () => {
     </div>
   ));
 
+  function genNewSearchParamString(key, value) {
+    const sp = new URLSearchParams(searchParams);
+    if (value === null) {
+      sp.delete(key);
+    } else {
+      sp.set(key, value);
+    }
+    return `?${sp.toString()}`;
+  }
+
+  function handleFilterChange(key, value) {
+    setSearchParams((prevParams) => {
+      if (value === null) {
+        prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
+      }
+      return prevParams;
+    });
+  }
+
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>
       <div className="FilterLinks">
         {/* METHOD 1 */}
-        <Link className="simple" to="?type=simple">
+        {/* <Link className="simple" to={genNewSearchParamString('type', 'simple')}>
           Simple
         </Link>
-        <Link className="rugged" to="?type=rugged">
+        <Link className="rugged" to={genNewSearchParamString('type', 'rugged')}>
           Rugged
         </Link>
-        <Link className="luxury" to="?type=luxury">
+        <Link className="luxury" to={genNewSearchParamString('type', 'luxury')}>
           Luxury
         </Link>
-        <Link className="Clear" to=".">
+        <Link className="Clear" to={genNewSearchParamString('type', null)}>
           Clear Filters
-        </Link>
+        </Link> */}
       </div>
 
       {/* METHOD 2 */}
       <div className="FilterLinks">
-        <button onClick={() => setSearchParams({ type: 'simple' })}>
+        <button
+          onClick={() => handleFilterChange('type', 'simple')}
+          className={`${typeFilter === 'simple' ? 'select-simple' : ''}`}
+        >
           Simple
         </button>
-        <button onClick={() => setSearchParams({ type: 'rugged' })}>
+        <button
+          onClick={() => handleFilterChange('type', 'rugged')}
+          className={`${typeFilter === 'rugged' ? 'select-rugged' : ''}`}
+        >
           rugged
         </button>
-        <button onClick={() => setSearchParams({ type: 'luxury' })}>
+        <button
+          onClick={() => handleFilterChange('type', 'luxury')}
+          className={`${typeFilter === 'luxury' ? 'select-luxury' : ''}`}
+        >
           luxury
         </button>
-        <button onClick={() => setSearchParams({})}>Clear</button>
+        {typeFilter ? (
+          <button onClick={() => handleFilterChange('type', null)}>
+            Clear
+          </button>
+        ) : null}
       </div>
       <div className="van-list">{vanElements}</div>
     </div>
