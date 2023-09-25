@@ -145,3 +145,24 @@
   background-color: #115e59;
   color: #fff;
 }
+
+.btn {
+  padding: 7px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn.sim:hover {
+  background-color: #e17654;
+  color: #fff;
+}
+
+.btn.rugg:hover {
+  background-color: #115e59;
+  color: #fff;
+}
+
+.btn.lux:hover {
+  background-color: #161616;
+  color: #fff;
+}

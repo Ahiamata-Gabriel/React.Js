@@ -38,16 +38,6 @@ const Vans = () => {
     </div>
   ));
 
-  function genNewSearchParamString(key, value) {
-    const sp = new URLSearchParams(searchParams);
-    if (value === null) {
-      sp.delete(key);
-    } else {
-      sp.set(key, value);
-    }
-    return `?${sp.toString()}`;
-  }
-
   function handleFilterChange(key, value) {
     setSearchParams((prevParams) => {
       if (value === null) {
@@ -63,43 +53,35 @@ const Vans = () => {
     <div className="van-list-container">
       <h1>Explore our van options</h1>
       <div className="FilterLinks">
-        {/* METHOD 1 */}
-        {/* <Link className="simple" to={genNewSearchParamString('type', 'simple')}>
-          Simple
-        </Link>
-        <Link className="rugged" to={genNewSearchParamString('type', 'rugged')}>
-          Rugged
-        </Link>
-        <Link className="luxury" to={genNewSearchParamString('type', 'luxury')}>
-          Luxury
-        </Link>
-        <Link className="Clear" to={genNewSearchParamString('type', null)}>
-          Clear Filters
-        </Link> */}
-      </div>
-
-      {/* METHOD 2 */}
-      <div className="FilterLinks">
         <button
           onClick={() => handleFilterChange('type', 'simple')}
-          className={`${typeFilter === 'simple' ? 'select-simple' : ''}`}
+          className={`btn sim ${
+            typeFilter === 'simple' ? 'select-simple' : ''
+          }`}
         >
           Simple
         </button>
         <button
           onClick={() => handleFilterChange('type', 'rugged')}
-          className={`${typeFilter === 'rugged' ? 'select-rugged' : ''}`}
+          className={`btn rugg ${
+            typeFilter === 'rugged' ? 'select-rugged' : ''
+          }`}
         >
           rugged
         </button>
         <button
           onClick={() => handleFilterChange('type', 'luxury')}
-          className={`${typeFilter === 'luxury' ? 'select-luxury' : ''}`}
+          className={`btn lux ${
+            typeFilter === 'luxury' ? 'select-luxury' : ''
+          }`}
         >
           luxury
         </button>
         {typeFilter ? (
-          <button onClick={() => handleFilterChange('type', null)}>
+          <button
+            className="btn"
+            onClick={() => handleFilterChange('type', null)}
+          >
             Clear
           </button>
         ) : null}
