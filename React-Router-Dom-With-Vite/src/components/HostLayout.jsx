@@ -7,7 +7,7 @@ const HostLayout = () => {
       <nav>
         <NavLink
           to="."
-          end
+          end //tells react-router-dom to end matching here.
           className={({ isActive }) => (isActive ? 'Active' : null)}
         >
           Dashboard
