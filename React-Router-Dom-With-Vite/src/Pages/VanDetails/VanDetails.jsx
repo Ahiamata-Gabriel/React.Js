@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import './VanDetails.scss';
 
 const VanDetails = () => {
   const params = useParams();
   const [van, setVan] = useState(null);
+
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -15,8 +18,16 @@ const VanDetails = () => {
 
   return (
     <div className="van-detail-container">
-      <Link to=".." relative="path">
-        <h6>🔙Back to all vans</h6>
+      <Link
+        to={location.state.search ? `..${location.state.search}` : '..'}
+        relative="path"
+      >
+        {/* <h6>🔙Back to all vans</h6> */}
+        {location.state.type ? (
+          <h6>🔙Back to {location.state.type} vans</h6>
+        ) : (
+          <h6>🔙Back to all vans</h6>
+        )}
       </Link>
 
       {van ? (

@@ -16,7 +16,7 @@ const Vans = () => {
   }, []);
 
   // if there is a typeFilter,
-  // then filter and display vans base on the type,
+  // then filter and display vans base on the type that is equal to the typefilter,
   // else display all vans
   const vansToDisplay = typeFilter
     ? vans.filter((van) => van.type.toLowerCase() === typeFilter)
@@ -24,7 +24,10 @@ const Vans = () => {
 
   const vanElements = vansToDisplay.map((van) => (
     <div key={van.id} className="van-tile">
-      <Link to={van.id}>
+      <Link
+        to={van.id}
+        state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
+      >
         <img src={van.imageUrl} />
         <div className="van-info">
           <h3>{van.name}</h3>
