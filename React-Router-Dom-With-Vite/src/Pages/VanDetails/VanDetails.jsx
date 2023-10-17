@@ -7,7 +7,6 @@ const VanDetails = () => {
   const [van, setVan] = useState(null);
 
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -19,10 +18,13 @@ const VanDetails = () => {
   return (
     <div className="van-detail-container">
       <Link
-        to={location.state.search ? `..${location.state.search}` : '..'}
+        to={
+          location.state.searchParams
+            ? `..${location.state.searchParams}`
+            : '..'
+        }
         relative="path"
       >
-        {/* <h6>🔙Back to all vans</h6> */}
         {location.state.type ? (
           <h6>🔙Back to {location.state.type} vans</h6>
         ) : (
