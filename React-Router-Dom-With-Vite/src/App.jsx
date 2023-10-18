@@ -2,7 +2,7 @@ import './App.scss';
 import Layout from './Components/Layout';
 import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
-import Vans from './Pages/Vans/Vans';
+import Vans, { loader as vansLoader } from './Pages/Vans/Vans';
 import VanDetails from './Pages/VanDetails/VanDetails';
 import HostLayout from './Components/HostLayout';
 import Dashboard from './Pages/Host/Dashboard';
@@ -14,6 +14,7 @@ import HostVanPricing from './components/HostVanPricing';
 import HostVanInfo from './components/HostVanInfo';
 import HostVanPhotos from './components/HostVanPhotos';
 import NotFound from './Pages/404/NotFound';
+import Error from './components/Error';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -28,7 +29,12 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="vans" element={<Vans />} />
+      <Route
+        path="vans"
+        element={<Vans />}
+        errorElement={<Error />}
+        loader={vansLoader}
+      />
       <Route path="vans/:id" element={<VanDetails />} />
 
       <Route path="host" element={<HostLayout />}>
