@@ -1,16 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { getHostVans } from '../api';
 import './HostVans.scss';
 
-const HostVans = () => {
-  const [vanss, setVans] = useState([]);
+export const loader = () => {
+  return getHostVans();
+};
 
-  useEffect(() => {
-    fetch('/api/host/vans')
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans))
-      .catch((error) => console.error(error));
-  }, []);
+const HostVans = () => {
+  const vanss = useLoaderData();
 
   const vansElements = vanss.map((van) => (
     <div key={van.id} className="Van-Container">

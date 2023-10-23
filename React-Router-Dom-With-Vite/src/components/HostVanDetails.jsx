@@ -1,61 +1,56 @@
-import { useParams, Link, NavLink, Outlet } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { Link, NavLink, Outlet, useLoaderData } from 'react-router-dom';
+import { getHostVans } from '../api';
 import './HostVanDetails.scss';
 
-const HostVanDetails = () => {
-  const params = useParams();
-  const [van, setVan] = useState(null);
+export const loader = ({ params }) => {
+  return getHostVans(params.id);
+};
 
-  useEffect(() => {
-    fetch(`/api/host/vans/${params.id}`)
-      .then((response) => response.json())
-      .then((data) => setVan(data.vans[0]))
-      .catch((error) => console.error(error));
-  }, [params.id]);
+const HostVanDetails = () => {
+  const data = useLoaderData();
+  const van = data[0];
 
   return (
     <div className="Main-container">
       <Link to=".." relative="path">
         <h6>🔙Back to all vans</h6>
       </Link>
-      {van ? (
-        <div>
-          <div className="Van-container">
-            <div className="Van-Image-container">
-              <img src={van.imageUrl} alt="" />
-            </div>
-            <div className="Van-Details-container">
-              <p className={van.type}>{van.type}</p>
-              <h2>{van.name}</h2>
-              <h3>${van.price}/day</h3>
-            </div>
+
+      <div>
+        <div className="Van-container">
+          <div className="Van-Image-container">
+            <img src={van.imageUrl} alt="" />
           </div>
-          <nav className="DetailsNav">
-            <NavLink
-              to="."
-              end
-              className={({ isActive }) => (isActive ? 'Active' : null)}
-            >
-              Details
-            </NavLink>
-            <NavLink
-              to="pricing"
-              className={({ isActive }) => (isActive ? 'Active' : null)}
-            >
-              Pricing
-            </NavLink>
-            <NavLink
-              to="photo"
-              end
-              className={({ isActive }) => (isActive ? 'Active' : null)}
-            >
-              Photos
-            </NavLink>
-          </nav>
+          <div className="Van-Details-container">
+            <p className={van.type}>{van.type}</p>
+            <h2>{van.name}</h2>
+            <h3>${van.price}/day</h3>
+          </div>
         </div>
-      ) : (
-        <h2>Loading...</h2>
-      )}
+        <nav className="DetailsNav">
+          <NavLink
+            to="."
+            end
+            className={({ isActive }) => (isActive ? 'Active' : null)}
+          >
+            Details
+          </NavLink>
+          <NavLink
+            to="pricing"
+            className={({ isActive }) => (isActive ? 'Active' : null)}
+          >
+            Pricing
+          </NavLink>
+          <NavLink
+            to="photo"
+            end
+            className={({ isActive }) => (isActive ? 'Active' : null)}
+          >
+            Photos
+          </NavLink>
+        </nav>
+      </div>
+
       <Outlet context={{ van }} />
     </div>
   );
