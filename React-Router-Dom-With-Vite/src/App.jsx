@@ -20,6 +20,8 @@ import HostVanPhotos from './components/HostVanPhotos';
 import NotFound from './Pages/404/NotFound';
 import Error from './components/Error';
 import Login from './Pages/Login';
+import { requireAuth } from './utils';
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -47,33 +49,21 @@ const router = createBrowserRouter(
         loader={vansDetailsLoader}
       />
 
-      <Route
-        path="host"
-        element={<HostLayout />}
-        loader={async () => {
-          return null;
-        }}
-      >
+      <Route path="host" element={<HostLayout />}>
         <Route
           index
           element={<Dashboard />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
         <Route
           path="income"
           element={<Income />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
         <Route
           path="reviews"
           element={<Reviews />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
         <Route path="vans" element={<HostVans />} loader={hostVansLoader} />
 
@@ -85,23 +75,17 @@ const router = createBrowserRouter(
           <Route
             index
             element={<HostVanInfo />}
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
           />
           <Route
             path="pricing"
             element={<HostVanPricing />}
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
           />
           <Route
             path="photo"
             element={<HostVanPhotos />}
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
           />
         </Route>
       </Route>
