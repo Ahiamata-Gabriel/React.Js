@@ -7,6 +7,7 @@ export default function Layout() {
     <nav>
       <Link to="/">Home</Link>
       <Link to="protected">Protected</Link>
+      <Link to="login">Login</Link>
     </nav>
     <main>
       <Outlet />

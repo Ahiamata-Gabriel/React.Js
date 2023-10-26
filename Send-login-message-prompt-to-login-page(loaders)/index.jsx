@@ -1,24 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Login, { loader as logInLoader } from './Login';
 import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
+import { requireAuth } from './utils';
 
 import Layout from './Layout';
-import AuthRequired from './AuthRequired';
-import Login from './Login';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<h1>Home page</h1>} />
-      <Route path="login" element={<Login />}></Route>
-      <Route element={<AuthRequired />}>
-        <Route path="protected" element={<h1>Super secret info here</h1>} />
-      </Route>
+      <Route
+        path="protected"
+        element={<h1>Super secret info here</h1>}
+        loader={async () => await requireAuth()}
+      />
+      <Route path="login" loader={logInLoader} element={<Login />} />
     </Route>
   )
 );
