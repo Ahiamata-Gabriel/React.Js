@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Login from './Login';
 import {
   RouterProvider,
   createBrowserRouter,
@@ -8,9 +7,9 @@ import {
   Route,
   redirect,
 } from 'react-router-dom';
-import { requireAuth } from './utils';
 
 import Layout from './Layout';
+import Login, { action as logInAction } from './Login';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,9 +18,15 @@ const router = createBrowserRouter(
       <Route
         path="protected"
         element={<h1>Super secret info here</h1>}
-        loader={async () => await requireAuth()}
+        loader={async () => {
+          const isLoggedIn = false;
+          if (!isLoggedIn) {
+            throw redirect('/login');
+          }
+          return null;
+        }}
       />
-      <Route path="login" element={<Login />} />
+      <Route path="login" action={logInAction} element={<Login />} />
     </Route>
   )
 );
