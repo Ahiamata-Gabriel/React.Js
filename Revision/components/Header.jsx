@@ -13,23 +13,29 @@ export default function Header() {
             <Link className="site-logo" to="/">#VanLife</Link>
             <nav>
                 <NavLink 
-                    to="/host"
+                    to="host"
                     style={({isActive}) => isActive ? activeStyles : null}
                 >
                     Host
                 </NavLink>
                 <NavLink 
-                    to="/about"
+                    to="about"
                     style={({isActive}) => isActive ? activeStyles : null}
                 >
                     About
                 </NavLink>
                 <NavLink 
-                    to="/vans"
+                    to="vans"
                     style={({isActive}) => isActive ? activeStyles : null}
                 >
                     Vans
                 </NavLink>
+                <Link to="login" className="login-link">
+                    <img 
+                        src="../assets/images/avatar-icon.png" 
+                        className="login-icon"
+                    />
+                </Link>
             </nav>
         </header>
     )
