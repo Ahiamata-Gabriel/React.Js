@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { loginUser } from '../api';
 
 export function loader({ request }) {
@@ -14,6 +14,7 @@ export default function Login() {
 
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const message = useLoaderData();
 
@@ -22,7 +23,7 @@ export default function Login() {
     setStatus('submitting');
     setError(null);
     loginUser(loginFormData)
-      .then((data) => console.log(data))
+      .then((data) => navigate('host', { replace: true }))
       .catch((err) => setError(err))
       .finally(() => setStatus('idle'));
   }
@@ -39,6 +40,7 @@ export default function Login() {
     <div className="login-container">
       <h1>Sign in to your account</h1>
       {message && <h3 className="red">{message}</h3>}
+      {error && <h3 className="red">{error.message}</h3>}
       <form onSubmit={handleSubmit} className="login-form">
         <input
           name="email"
