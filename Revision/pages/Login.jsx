@@ -11,6 +11,7 @@ export const action = async ({ request }) => {
   const email = forrmData.get('email');
   const password = forrmData.get('password');
   const data = await loginUser({ email, password });
+  localStorage.setItem('loggedIn', true);
 
   console.log(data);
   return null;
