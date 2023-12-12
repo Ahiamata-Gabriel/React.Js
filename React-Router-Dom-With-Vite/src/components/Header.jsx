@@ -3,6 +3,10 @@ import imgUrl from '../assets/images/avatar-icon.png';
 import './Header.scss';
 
 const Header = () => {
+  const fakeLogOut = () => {
+    localStorage.removeItem('loggedin');
+  };
+
   return (
     <>
       <header className="Header">
@@ -36,6 +40,7 @@ const Header = () => {
               {/* <img src={imgUrl} className="Login-icon" alt="" /> */}
               Login
             </NavLink>
+            <button onClick={fakeLogOut}>X</button>
           </div>
         </nav>
       </header>

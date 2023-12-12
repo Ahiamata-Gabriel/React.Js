@@ -26,7 +26,7 @@ const VanDetails = () => {
           <h6>🔙Back to all vans</h6>
         )}
       </Link>
-      (
+
       <div className="van-detail">
         <img src={van.imageUrl} />
         <i className={`van-type ${van.type} selected`}>{van.type}</i>
@@ -39,7 +39,6 @@ const VanDetails = () => {
           <button className="link-button">Rent this van</button>
         </div>
       </div>
-      )
     </div>
   );
 };

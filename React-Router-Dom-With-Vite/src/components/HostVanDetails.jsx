@@ -10,6 +10,7 @@ export const loader = async ({ params }) => {
 
 const HostVanDetails = () => {
   const data = useLoaderData();
+
   const van = data[0];
 
   return (

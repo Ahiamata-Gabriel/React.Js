@@ -24,7 +24,6 @@ import Login, {
   action as logInAction,
 } from './Pages/Login';
 import { requireAuth } from './utils';
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
