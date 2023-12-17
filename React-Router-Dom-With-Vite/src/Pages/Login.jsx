@@ -33,7 +33,7 @@ export default function Login() {
   const credentialsError = useActionData();
 
   const navigation = useNavigation();
-  console.log(navigation.state);
+  console.log(navigation);
 
   return (
     <div className="login-container">
