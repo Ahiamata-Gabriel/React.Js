@@ -3,8 +3,8 @@ import { getHostVans } from '../api';
 import { requireAuth } from '../utils';
 import './HostVans.scss';
 
-export const loader = async () => {
-  await requireAuth();
+export const loader = async ({ request }) => {
+  await requireAuth(request);
   return getHostVans();
 };
 
