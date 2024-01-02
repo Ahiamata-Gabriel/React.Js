@@ -1,12 +1,10 @@
 import React from 'react';
-import NavBar from '../components/NavBar/NavBar';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
+import NavBar from '../components/NavBar';
 
 const Home = () => {
   return (
     <div>
       <NavBar />
-      <AcUnitIcon className="icon" />
     </div>
   );
 };
