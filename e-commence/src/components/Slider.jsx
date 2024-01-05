@@ -38,13 +38,13 @@ const Arrow = styled.div`
 //   transform: translateX(${(props) => props.slideindex * -100}vw);
 // `;
 
-// const Slide = styled.div`
-//   background-color: ${(props) => props.bg};
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-// `;
+const Slide = styled.div`
+  background-color: ${(props) => props.bg};
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+`;
 
 const ImgContainer = styled.div`
   height: 100%;
