@@ -91,9 +91,9 @@ const Slider = () => {
 
   return (
     <Container>
-      {/* <Arrow direction="left" onClick={() => handleClick('left')}>
+      <Arrow direction="left" onClick={() => handleClick('left')}>
         <ArrowLeftOutlined />
-      </Arrow> */}
+      </Arrow>
       <Wrapper slideindex={slideindex}>
         {sliderItems.map((sliderItem) => (
           <Slide key={sliderItem.id} bg={sliderItem.bgColor}>
