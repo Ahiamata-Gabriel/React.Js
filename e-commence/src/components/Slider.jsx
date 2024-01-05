@@ -31,12 +31,12 @@ const Arrow = styled.div`
   z-index: 2;
 `;
 
-// const Wrapper = styled.div`
-//   display: flex;
-//   height: 100%;
-//   transition: all 1.6s ease;
-//   transform: translateX(${(props) => props.slideindex * -100}vw);
-// `;
+const Wrapper = styled.div`
+  display: flex;
+  height: 100%;
+  transition: all 1.6s ease;
+  transform: translateX(${(props) => props.slideindex * -100}vw);
+`;
 
 const Slide = styled.div`
   background-color: ${(props) => props.bg};
