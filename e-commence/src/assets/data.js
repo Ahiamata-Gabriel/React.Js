@@ -29,3 +29,61 @@ export const sliderItems = [
     bgColor: '#d4d4cf',
   },
 ];
+
+export const categories = [
+  {
+    id: 1,
+    image: `${img1}`,
+    title: 'MAN DUNE',
+  },
+  {
+    id: 2,
+    image: `${img2}`,
+    title: 'JEO MYNG',
+  },
+  {
+    id: 3,
+    image: `${img3}`,
+    title: 'JEO MYNG',
+  },
+  {
+    id: 4,
+    image: `${img4}`,
+    title: 'JEO MYNG',
+  },
+];
+
+export const popularProducts = [
+  {
+    id: 1,
+    image: `${img1}`,
+  },
+  {
+    id: 2,
+    image: `${img2}`,
+  },
+  {
+    id: 3,
+    image: `${img3}`,
+  },
+  {
+    id: 4,
+    image: `${img4}`,
+  },
+  {
+    id: 5,
+    image: `${img1}`,
+  },
+  {
+    id: 6,
+    image: `${img2}`,
+  },
+  {
+    id: 7,
+    image: `${img3}`,
+  },
+  {
+    id: 8,
+    image: `${img4}`,
+  },
+];
