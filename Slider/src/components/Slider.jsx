@@ -26,7 +26,10 @@ const Slider = () => {
           <div
             className="Slide"
             key={sliderItem.id}
-            style={{ backgroundImage: `url(${sliderItem.image})` }}
+            // style={{ backgroundImage: `url(${sliderItem.image})` }}
+            style={{
+              background: `linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5)), url(${sliderItem.image})`,
+            }}
           >
             <div className="Image__Container">
               <img className="Image" src={sliderItem.image} alt="" />

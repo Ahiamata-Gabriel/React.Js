@@ -34,4 +34,11 @@ export const sliderItems = [
     desc: ' DON`T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.',
     bgColor: '#d4d4cf',
   },
+  {
+    id: 5,
+    title: 'GITG',
+    image: `${img2}`,
+    desc: ' DON`T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.',
+    bgColor: '#ffe3c2',
+  },
 ];
