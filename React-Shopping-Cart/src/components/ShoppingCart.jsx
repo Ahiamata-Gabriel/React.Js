@@ -12,6 +12,11 @@ const ShoppingCart = ({
   onClose,
   onQuantityChange,
 }) => {
+  // Calculate total price
+  const total = products.reduce((acc, product) => {
+    return acc + product.price * product.count;
+  }, 0);
+
   return (
     <div
       className="modal"
@@ -70,7 +75,10 @@ const ShoppingCart = ({
             </div>
           ))}
           {products.length > 0 && (
-            <button className="btn checkout-btn"> proceed to checkout</button>
+            <div className="total-price">
+              <span>Total: {total}$</span>
+              <button className="btn checkout-btn">Proceed to checkout</button>
+            </div>
           )}
         </div>
       </div>
