@@ -83,7 +83,7 @@ input {
   list-style: none;
   width: 80%;
   overflow: scroll;
-
+  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.2rem;
@@ -117,4 +117,13 @@ input[type='checkbox'] {
   text-align: center;
   font-weight: 700;
   padding: 3.2rem 0;
+}
+
+.Logo {
+  display: grid;
+  place-items: center;
+}
+
+.btn {
+  color: rgb(241, 16, 16);
 }
