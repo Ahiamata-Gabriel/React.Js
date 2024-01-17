@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Logo = () => {
-  return <div>Far Away</div>;
+  return <div className="Logo">Far Away</div>;
 };
 
 export default Logo;
