@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const Form = () => {
-  const [desc, setDesc] = useState('');
+const Form = ({ onAddItems }) => {
   const [quantity, setQuantity] = useState(1);
+  const [desc, setDesc] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +12,8 @@ const Form = () => {
     }
 
     const newItem = { desc, quantity, packed: false, id: Date.now() };
-    console.log(newItem);
+
+    onAddItems(newItem);
 
     setDesc('');
     setQuantity(1);
