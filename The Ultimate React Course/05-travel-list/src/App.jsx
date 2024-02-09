@@ -16,12 +16,30 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   };
 
+  const handleToggleItem = (id) => {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  };
+
+  const handleClearItems = () => {
+    const confirmed = window.confirm('Yo , you really want to do this ?');
+    confirmed && setItems([]);
+  };
+
   return (
     <div className="app">
       <Logo />
       <Form onAddItems={handleAddItems} />
-      <PackingList items={items} onDeleteItem={handleDeleteItem} />
-      <Stats />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onToggleItem={handleToggleItem}
+        onClearItems={handleClearItems}
+      />
+      <Stats items={items} />
     </div>
   );
 }
