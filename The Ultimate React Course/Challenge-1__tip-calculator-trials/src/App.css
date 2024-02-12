@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;800&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+.Container {
+  display: flex;
+}
