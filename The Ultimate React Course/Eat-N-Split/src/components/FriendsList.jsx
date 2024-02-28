@@ -1,9 +1,8 @@
 import React from 'react';
-import { initialFriends } from '../assets/Data';
+
 import Friend from './Friend';
 
-const FriendsList = () => {
-  const friends = initialFriends;
+const FriendsList = ({ friends }) => {
   return (
     <ul>
       {friends.map((friend) => (
