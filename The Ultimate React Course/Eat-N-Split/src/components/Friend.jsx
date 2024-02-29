@@ -1,9 +1,13 @@
 import React from 'react';
 import Button from './Button';
 
-const Friend = ({ friend }) => {
+const Friend = ({ friend, onSelectFriend, selectedFriend }) => {
+  // const isSelected = selectedFriend.id === friend.id;
+  const isSelected =
+    selectedFriend !== null ? selectedFriend.id === friend.id : false;
+
   return (
-    <li>
+    <li className={isSelected ? 'selected' : ''}>
       <img src={friend.image} alt={friend.name} />
       <h3>{friend.name}</h3>
       {friend.balance < 0 && (
@@ -17,7 +21,9 @@ const Friend = ({ friend }) => {
         </p>
       )}
       {friend.balance === 0 && <p>You and {friend.name} are square</p>}
-      <Button>Select</Button>
+      <Button onclick={() => onSelectFriend(friend)}>
+        {isSelected ? 'Close' : 'Select'}
+      </Button>
     </li>
   );
 };
