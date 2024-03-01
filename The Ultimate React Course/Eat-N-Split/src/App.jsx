@@ -19,9 +19,26 @@ function App() {
     setShowAddFriend(false);
   };
 
+  const handleSplitBill = (value) => {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+
+    setSelectedFriend(null);
+  };
+
   const handleSelection = (friend) => {
-    setSelectedFriend(friend);
-    // setSelectedFriend((selected) => (selected.id ? null : friend));
+    // setSelectedFriend(friend);
+    setSelectedFriend(
+      (cur) => (cur?.id === friend.id ? null : friend)
+      // ai code suggestion
+      // cur !== null ? (cur.id === friend.id ? null : friend) : friend
+    );
+    setShowAddFriend(false);
   };
 
   return (
@@ -39,7 +56,12 @@ function App() {
           {showAddFriend ? 'Close' : 'Add friend'}
         </Button>
       </div>
-      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
+      {selectedFriend && (
+        <FormSplitBill
+          selectedFriend={selectedFriend}
+          onSplitBill={handleSplitBill}
+        />
+      )}
     </div>
   );
 }
