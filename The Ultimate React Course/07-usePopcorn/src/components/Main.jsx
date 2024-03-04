@@ -1,10 +1,10 @@
 import ListBox from './ListBox';
 import WatchedBox from './WatchedBox';
 
-const Main = () => {
+const Main = ({ movies }) => {
   return (
     <main className="main">
-      <ListBox />
+      <ListBox movies={movies} />
       <WatchedBox />
     </main>
   );
