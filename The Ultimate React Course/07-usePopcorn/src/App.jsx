@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import Navigation from './components/Navigation';
 import Main from './components/Main';
 import Search from './components/Search';
@@ -9,13 +9,16 @@ import MovieList from './components/MovieList';
 import { useState } from 'react';
 import Summary from './components/Summary';
 import WatchedList from './components/WatchedList';
+import StarRating from './components/StarRating';
 
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
   return (
     <>
-      <Navigation>
+      <StarRating maxRating={6} />
+
+      {/* <Navigation>
         <Search />
         <NumResults movies={movies} />
       </Navigation>
@@ -25,7 +28,7 @@ export default function App() {
           <Summary watched={watched} />
           <WatchedList watched={watched} />
         </Box>
-      </Main>
+      </Main> */}
     </>
   );
 }
