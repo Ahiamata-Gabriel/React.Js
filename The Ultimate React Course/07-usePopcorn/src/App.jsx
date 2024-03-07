@@ -17,6 +17,8 @@ export default function App() {
   return (
     <>
       <StarRating maxRating={6} />
+      <StarRating messages={['Terrible', 'Bad', 'Okay', 'Good', 'Amazing']} />
+      <StarRating defaultRating={2} />
 
       {/* <Navigation>
         <Search />
