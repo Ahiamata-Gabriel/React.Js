@@ -1,10 +1,10 @@
-import './App.css';
-import FormAddFriend from './components/FormAddFriend';
-import FriendsList from './components/FriendsList';
-import Button from './components/Button';
-import FormSplitBill from './components/FormSplitBill';
-import { initialFriends } from './assets/Data';
-import { useState } from 'react';
+import "./App.css";
+import FormAddFriend from "./components/FormAddFriend";
+import FriendsList from "./components/FriendsList";
+import Button from "./components/Button";
+import FormSplitBill from "./components/FormSplitBill";
+import { initialFriends } from "./assets/Data";
+import { useState } from "react";
 
 function App() {
   const [friends, setFriends] = useState(initialFriends);
@@ -53,11 +53,12 @@ function App() {
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
 
         <Button onclick={handleShowAddFriend}>
-          {showAddFriend ? 'Close' : 'Add friend'}
+          {showAddFriend ? "Close" : "Add friend"}
         </Button>
       </div>
       {selectedFriend && (
         <FormSplitBill
+          key={selectedFriend.id}
           selectedFriend={selectedFriend}
           onSplitBill={handleSplitBill}
         />
