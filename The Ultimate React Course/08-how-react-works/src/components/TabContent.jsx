@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function TabContent({ item }) {
   const [showDetails, setShowDetails] = useState(true);
   const [likes, setLikes] = useState(0);
 
+  const handleUndo = () => {
+    setShowDetails(true);
+    setLikes(0);
+  };
+
   function handleInc() {
-    setLikes(likes + 1);
+    setLikes((likes) => likes + 1);
+  }
+
+  function threePleInc() {
+    setLikes((likes) => likes + 1);
   }
 
   return (
@@ -15,18 +24,18 @@ export default function TabContent({ item }) {
 
       <div className="tab-actions">
         <button onClick={() => setShowDetails((h) => !h)}>
-          {showDetails ? 'Hide' : 'Show'} details
+          {showDetails ? "Hide" : "Show"} details
         </button>
 
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+          <button onClick={threePleInc}>+++</button>
         </div>
       </div>
 
       <div className="tab-undo">
-        <button>Undo</button>
+        <button onClick={handleUndo}>Undo</button>
         <button>Undo in 2s</button>
       </div>
     </div>
