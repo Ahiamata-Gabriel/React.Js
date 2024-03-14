@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import Button from './Button';
+import React, { useState } from "react";
+import Button from "./Button";
 
 const FormSplitBill = ({ selectedFriend, onSplitBill }) => {
-  const [bill, setBill] = useState('');
-  const [paidByUser, setPaidByUser] = useState('');
-  const paidByFriend = bill ? bill - paidByUser : '';
-  const [whoIsPaying, setWhoisPaying] = useState('user');
+  const [bill, setBill] = useState("");
+  const [paidByUser, setPaidByUser] = useState("");
+  const paidByFriend = bill ? bill - paidByUser : "";
+  const [whoIsPaying, setWhoisPaying] = useState("user");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!bill || !paidByFriend) return;
-    onSplitBill(whoIsPaying === 'user' ? paidByFriend : -paidByFriend);
+    onSplitBill(whoIsPaying === "user" ? paidByFriend : -paidByFriend);
   };
 
   return (
