@@ -24,6 +24,14 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [selectedID, setSelectedId] = useState(null);
 
+  const handleSelection = (id) => {
+    setSelectedId((selectedID) => (id === selectedID ? null : id));
+  };
+
+  const handleCloseMovie = () => {
+    setSelectedId(null);
+  };
+
   useEffect(
     function () {
       async function fetchMovies() {
@@ -63,7 +71,9 @@ export default function App() {
       </Navigation>
       <Main>
         <Box>
-          {!isLoading && !error && <MovieList movies={movies} />}
+          {!isLoading && !error && (
+            <MovieList movies={movies} onSelectMovie={handleSelection} />
+          )}
           {error && <ErrorComponent message={error} />}
           {isLoading && <Loading />}
           {query.length < 3 && (
@@ -72,7 +82,10 @@ export default function App() {
         </Box>
         <Box>
           {selectedID ? (
-            <MovieDetail selectedID={selectedID} />
+            <MovieDetail
+              selectedID={selectedID}
+              onCloseMovie={handleCloseMovie}
+            />
           ) : (
             <>
               <Summary watched={watched} />
