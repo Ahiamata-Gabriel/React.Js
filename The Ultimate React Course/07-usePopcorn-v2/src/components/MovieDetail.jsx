@@ -3,9 +3,16 @@ import StarRating from "./StarRating";
 import Loading from "./Loading";
 const KEY = "73c9dba8";
 
-const MovieDetail = ({ selectedID, onCloseMovie, onAddWatched }) => {
+const MovieDetail = ({ selectedID, onCloseMovie, onAddWatched, watched }) => {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [userRating, setUserRating] = useState("");
+
+  const isWatched = watched.map((movie) => movie.imdbID).includes(selectedID);
+
+  const watchedUserRating = watched.find(
+    (movie) => movie.imdbID === selectedID
+  )?.userRating;
 
   const {
     Title,
@@ -27,11 +34,30 @@ const MovieDetail = ({ selectedID, onCloseMovie, onAddWatched }) => {
       Year,
       Poster,
       imdbRating: Number(imdbRating),
-      Runtime: Number(Runtime.split("").at(0)),
+      Runtime: Number(Runtime.split(" ").at(0)),
+      userRating,
     };
 
     onAddWatched(newWatchedMovie);
+    onCloseMovie();
   };
+
+  useEffect(
+    function () {
+      function callback(e) {
+        if (e.code === "Escape") {
+          onCloseMovie();
+        }
+      }
+
+      document.addEventListener("keydown", callback);
+
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [onCloseMovie]
+  );
 
   useEffect(
     function () {
@@ -48,6 +74,15 @@ const MovieDetail = ({ selectedID, onCloseMovie, onAddWatched }) => {
     },
     [selectedID]
   );
+
+  useEffect(() => {
+    if (!Title) return;
+    document.title = `Movie | ${Title}`;
+
+    return function () {
+      document.title = "usePopcorn";
+    };
+  }, [Title]);
 
   return (
     <>
@@ -71,10 +106,22 @@ const MovieDetail = ({ selectedID, onCloseMovie, onAddWatched }) => {
 
           <section>
             <div className="rating">
-              <StarRating maxRating={10} size={24} />
-              <button className="btn-add" onClick={handleAdd}>
-                Add
-              </button>
+              {!isWatched ? (
+                <>
+                  <StarRating
+                    maxRating={10}
+                    size={24}
+                    onSetRating={setUserRating}
+                  />
+                  {userRating > 0 && (
+                    <button className="btn-add" onClick={handleAdd}>
+                      Add to list
+                    </button>
+                  )}
+                </>
+              ) : (
+                <p>You rated this movie {watchedUserRating}</p>
+              )}
             </div>
 
             <p>
