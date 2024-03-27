@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import Loading from "./Loading";
 const KEY = "73c9dba8";
@@ -7,6 +7,15 @@ const MovieDetail = ({ selectedID, onCloseMovie, onAddWatched, watched }) => {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState("");
+
+  const countRef = useRef(0);
+
+  useEffect(
+    function () {
+      if (userRating) countRef.current = countRef.current + 1;
+    },
+    [userRating]
+  );
 
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedID);
 
@@ -36,6 +45,7 @@ const MovieDetail = ({ selectedID, onCloseMovie, onAddWatched, watched }) => {
       imdbRating: Number(imdbRating),
       Runtime: Number(Runtime.split(" ").at(0)),
       userRating,
+      countRatingDecisions: countRef.current,
     };
 
     onAddWatched(newWatchedMovie);
@@ -49,7 +59,6 @@ const MovieDetail = ({ selectedID, onCloseMovie, onAddWatched, watched }) => {
           onCloseMovie();
         }
       }
-
       document.addEventListener("keydown", callback);
 
       return function () {
