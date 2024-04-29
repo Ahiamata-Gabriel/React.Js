@@ -1,68 +1,35 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
-import "./App.css";
-import Product from "./pages/Product";
-import Homepage from "./pages/Homepage";
-import Pricing from "./pages/Pricing";
-import PageNotFound from "./pages/PageNotFound";
-import AppLayout from "./pages/AppLayout";
-import Login from "./pages/Login";
-import Form from "./components/Form";
-import CityList from "./components/CityList";
-import CountriesList from "./components/CountryList";
-import City from "./components/City";
-
-const BASE_URL = "http://localhost:8000";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const [cities, setCities] = useState([]);
-  const [isLoading, SetIsLoading] = useState(false);
-
-  useEffect(function () {
-    async function getCities() {
-      try {
-        SetIsLoading(true);
-        const res = await fetch(`${BASE_URL}/cities`);
-        const data = await res.json();
-        setCities(data);
-      } catch (error) {
-        alert("There was an error");
-      } finally {
-        SetIsLoading(false);
-      }
-    }
-    getCities();
-  }, []);
+  const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="products" element={<Product />} />
-        <Route path="pricing" element={<Pricing />} />
-        <Route path="login" element={<Login />} />
-
-        <Route path="app" element={<AppLayout />}>
-          <Route
-            index
-            element={<CityList cities={cities} isLoadding={isLoading} />}
-          />
-          <Route
-            path="cities"
-            element={<CityList cities={cities} isLoadding={isLoading} />}
-          />
-          <Route path="cities/:id" element={<City />}></Route>
-          <Route
-            path="countries"
-            element={<CountriesList cities={cities} isLoading={isLoading} />}
-          />
-          <Route path="form" element={<Form />} />
-        </Route>
-
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App
