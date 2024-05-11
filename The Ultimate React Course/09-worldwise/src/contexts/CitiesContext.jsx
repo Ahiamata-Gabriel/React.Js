@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 const BASE_URL = "http://localhost:9000";
+
 const Citiescontext = createContext();
 
 const CitiesProvider = ({ children }) => {
@@ -23,7 +24,7 @@ const CitiesProvider = ({ children }) => {
     fetchCities();
   }, []);
 
-  async function getCity({ id }) {
+  async function getCity(id) {
     try {
       setIsLoading(true);
       const res = await fetch(`${BASE_URL}/cities/${id}`);
