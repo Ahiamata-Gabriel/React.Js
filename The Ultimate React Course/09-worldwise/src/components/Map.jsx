@@ -22,10 +22,6 @@ const Map = () => {
     getPosition,
   } = useGeolocation();
 
-  // const [searchParams] = useSearchParams();
-  // const mapLat = searchParams.get("lat");
-  // const mapLng = searchParams.get("lng");
-
   useEffect(
     function () {
       if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
