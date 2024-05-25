@@ -1,4 +1,5 @@
 import { useContext, createContext, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -26,6 +27,7 @@ const FAKE_USER = {
 };
 
 const AuthProvider = ({ children }) => {
+  //const navigate = useNavigate();
   const [{ user, isAuthenticated }, dispatch] = useReducer(
     reducer,
     initialState
@@ -39,7 +41,7 @@ const AuthProvider = ({ children }) => {
 
   function logout() {
     dispatch({ type: "logout" });
-    console.log("logged ub");
+    //navigate("/");
   }
 
   return (
