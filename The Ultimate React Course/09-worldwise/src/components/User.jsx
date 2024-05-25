@@ -1,24 +1,26 @@
 import styles from "./User.module.css";
-
-const FAKE_USER = {
-  name: "Jack",
-  email: "jack@example.com",
-  password: "qwerty",
-  avatar: "https://i.pravatar.cc/100?u=zz",
-};
+import { useAuth } from "../contexts/fakeAuthContext";
+import { useNavigate } from "react-router-dom";
 
 function User() {
-  const user = FAKE_USER;
+  const { user, logout } = useAuth();
 
-  function handleClick() {}
+  const navigate = useNavigate();
 
-  return (
-    <div className={styles.user}>
-      <img src={user.avatar} alt={user.name} />
-      <span>Welcome, {user.name}</span>
-      <button onClick={handleClick}>Logout</button>
-    </div>
-  );
+  function handleClick() {
+    logout();
+    navigate("/");
+  }
+
+  // if (user) is my own to prevent reading when user hasnt logged in
+  if (user)
+    return (
+      <div className={styles.user}>
+        <img src={user.avatar} alt={user.name} />
+        <span>Welcome, {user.name}</span>
+        <button onClick={handleClick}>Logout</button>
+      </div>
+    );
 }
 
 export default User;
