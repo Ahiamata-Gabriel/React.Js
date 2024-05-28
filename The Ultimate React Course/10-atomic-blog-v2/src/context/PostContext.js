@@ -52,7 +52,6 @@ const PostProvider = ({ children }) => {
   );
 };
 
-// I think this is only neccessary when you are working with a group of developers
 const usePosts = () => {
   const context = useContext(PostContext);
   if (context === undefined)
