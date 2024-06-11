@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 
 const initialStaeAccount = {
   balance: 0,
@@ -6,13 +6,13 @@ const initialStaeAccount = {
   loanPurpose: "",
 };
 
-const initialStaeCustomer = {
+const initialStateCustomer = {
   fullName: "",
   nationalID: "",
   createAt: "",
 };
 
-const reducer = (state = initialStaeAccount, action) => {
+const accountReducer = (state = initialStaeAccount, action) => {
   switch (action.type) {
     case "account/deposit":
       return { ...state, balance: state.balance + action.payload };
@@ -39,7 +39,30 @@ const reducer = (state = initialStaeAccount, action) => {
   }
 };
 
-const store = createStore(reducer);
+const customerReducer = (state = initialStateCustomer, action) => {
+  switch (action.type) {
+    case "customer/createCustomer":
+      return {
+        ...state,
+        fullName: action.payload.fullName,
+        nationalID: action.payload.nationalID,
+        createdAt: action.payload.createdAt,
+      };
+
+    case "customer/updateName":
+      return { ...state, fullName: action.payload };
+
+    default:
+      return state;
+  }
+};
+
+const rootReducer = combineReducers({
+  account: accountReducer,
+  customer: customerReducer,
+});
+
+const store = createStore(rootReducer);
 
 //DISPATCHES
 // store.dispatch({ type: "account/deposit", payload: 500 });
@@ -113,3 +136,15 @@ function createCustomer(fullName, nationalID) {
     },
   };
 }
+
+function updateName(fullName) {
+  return {
+    type: "customer/updateName",
+    payload: {
+      fullName,
+    },
+  };
+}
+
+store.dispatch(createCustomer("Gabriel Ahiamata", "25245"));
+console.log(store.getState());
