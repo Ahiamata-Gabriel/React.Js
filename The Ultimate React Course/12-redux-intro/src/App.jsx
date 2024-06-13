@@ -1,8 +1,8 @@
 import "./App.css";
-import AccountOperations from "./componenets/AccountOperations";
-import Customer from "./componenets/CreateCustomer";
-import BalanceDisplay from "./componenets/BalanceDisplay";
-import CreateCustomer from "./componenets/CreateCustomer";
+import AccountOperations from "./features/accounts/AccountOperations";
+import Customer from "./features/customers/CreateCustomer";
+import BalanceDisplay from "./features/accounts/BalanceDisplay";
+import CreateCustomer from "./features/customers/CreateCustomer";
 function App() {
   return (
     <div>
