@@ -31,6 +31,7 @@ export default function accountReducer(state = initialStaeAccount, action) {
   }
 }
 
+//ACTION CREATOR FUNCTIONS
 export function deposit(amount) {
   return {
     type: "account/deposit",
