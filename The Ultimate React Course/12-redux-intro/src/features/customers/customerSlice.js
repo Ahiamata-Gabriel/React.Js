@@ -22,6 +22,7 @@ export default function customerReducer(state = initialStateCustomer, action) {
   }
 }
 
+//ACTION CREATOR FUNCTIONS
 export function createCustomer(fullName, nationalID) {
   return {
     type: "customer/createCustomer",
