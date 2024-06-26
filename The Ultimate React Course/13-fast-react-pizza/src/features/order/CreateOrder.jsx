@@ -37,7 +37,7 @@ function CreateOrder() {
 
   return (
     <div>
-      <h2>Ready to order? Let's go!</h2>
+      <h2>Ready to order? Let go!</h2>
 
       <form>
         <div>
