@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const SearchOrder = () => {
   const [query, setQuery] = useState("");
-
   const navingate = useNavigate();
 
   const handleSubmit = (e) => {
