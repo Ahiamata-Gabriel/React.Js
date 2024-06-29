@@ -10,9 +10,8 @@ const AppLayout = () => {
 
   return (
     <div className="layout">
-      {isLoading && <Loader />}
-
       <Header />
+      {isLoading && <Loader />}
       <main>
         <Outlet />
       </main>
