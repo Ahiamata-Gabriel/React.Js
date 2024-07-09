@@ -47,7 +47,7 @@ function Cart() {
           Order pizzas
         </Button>
 
-        <button>Clear cart</button>
+        <Button type="secondary">clear cart</Button>
       </div>
     </div>
   );
