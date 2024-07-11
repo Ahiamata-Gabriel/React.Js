@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable no-unused-vars */
 // Test ID: IIDSAT
 
 import { useLoaderData } from "react-router-dom";
