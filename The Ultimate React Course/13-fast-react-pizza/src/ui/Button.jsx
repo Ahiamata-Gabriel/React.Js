@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 
-const Button = ({ children, disabled, to, type }) => {
+const Button = ({ children, disabled, to, type, onClick }) => {
   const base =
     "my-2 inline-block text-sm rounded-full bg-yellow-500 font-semibold uppercase tracking-wide text-stone-800 transition-colors hover:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-1 disabled:cursor-not-allowed ";
 
@@ -18,6 +18,13 @@ const Button = ({ children, disabled, to, type }) => {
       <Link to={to} className={styles[type]}>
         {children}
       </Link>
+    );
+
+  if (onClick)
+    return (
+      <button onClick={onClick} disabled={disabled} className={styles[type]}>
+        {children}
+      </button>
     );
 
   return (
