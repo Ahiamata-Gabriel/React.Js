@@ -31,6 +31,7 @@ const fakeCart = [
 function Cart() {
   const cart = fakeCart;
   const username = useSelector((state) => state.user.username);
+  const username1 = useSelector((state) => state.user);
 
   return (
     <div className="px-4 py-3">
