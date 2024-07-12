@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 import { getAddress } from "../../services/apiGeocoding";
 
 /* eslint-disable no-unused-vars */
