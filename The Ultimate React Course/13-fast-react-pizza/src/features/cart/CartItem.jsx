@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
-
 import Button from "../../ui/Button";
 import { formatCurrency } from "../../utils/helpers";
 
-/* eslint-disable react/prop-types */
 function CartItem({ item }) {
   const { pizzaId, name, quantity, totalPrice } = item;
 
