@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import CreateUser from "../features/user/CreateUser";
 import { useSelector } from "react-redux";
 import Button from "./Button";

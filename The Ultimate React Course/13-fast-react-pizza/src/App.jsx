@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Home from "./ui/Home";

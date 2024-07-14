@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useNavigate, useRouteError } from "react-router-dom";
 import LinkButton from "./LinkButton";
 

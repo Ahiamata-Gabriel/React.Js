@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useSelector } from "react-redux";
 
 const Username = () => {

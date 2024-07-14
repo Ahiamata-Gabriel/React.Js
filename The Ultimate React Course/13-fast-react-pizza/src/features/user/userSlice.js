@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAddress } from "../../services/apiGeocoding";
 
-/* eslint-disable no-unused-vars */
 function getPosition() {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
