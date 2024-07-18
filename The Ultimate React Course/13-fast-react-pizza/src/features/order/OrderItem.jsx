@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import { formatCurrency } from "../../utils/helpers";
 
 function OrderItem({ item, isLoadingIngredients, ingredients }) {
@@ -11,6 +13,9 @@ function OrderItem({ item, isLoadingIngredients, ingredients }) {
         </p>
         <p>{formatCurrency(totalPrice)}</p>
       </div>
+      <p className="text-sm capitalize italic text-stone-500">
+        {isLoadingIngredients ? "loading..." : ingredients.join(", ")}
+      </p>
     </li>
   );
 }
