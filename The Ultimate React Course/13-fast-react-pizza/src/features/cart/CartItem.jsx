@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
 import { getCurrentQuantityById } from "./cartSlice";
