@@ -9,6 +9,7 @@ function getPosition() {
 
 // ********* REdux Thunk ************
 export const fetchAddress = createAsyncThunk(
+  //dont use Eg "getAddress" in thunks because the "get" keyword is used for selectors
   "user/fetchAddress",
   async function () {
     // 1) We get the user's geolocation position
@@ -23,6 +24,7 @@ export const fetchAddress = createAsyncThunk(
     const address = `${addressObj?.locality}, ${addressObj?.city} ${addressObj?.postcode}, ${addressObj?.countryName}`;
 
     // 3) Then we return an object with the data that we are interested in
+    //Payload of the FULLFILLED store
     return { position, address };
   },
 );
@@ -30,6 +32,10 @@ export const fetchAddress = createAsyncThunk(
 // ********* REdux Toolkit ************
 const initialState = {
   username: "",
+  status: "idle",
+  position: {},
+  address: "",
+  error: "",
 };
 
 const userSlice = createSlice({
@@ -39,6 +45,21 @@ const userSlice = createSlice({
     updateName(state, action) {
       state.username = action.payload;
     },
+  },
+  //**** Connecting Redux Thunk to Reducer/
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAddress.pending, (state) => (state.status = "loading"))
+      .addCase(fetchAddress.fulfilled, (state, action) => {
+        state.position = action.payload.position;
+        state.address = action.payload.position;
+        state.status = "idle";
+      })
+      .addCase(fetchAddress.rejected, (state, action) => {
+        state.status = "error";
+        state.error =
+          "There was a problem getting your address Make sure to fill this field!";
+      });
   },
 });
 
