@@ -13,10 +13,11 @@ import { action as updateOrderAction } from "./features/order/UpdateOrder";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <AppLayout />,
     errorElement: <Error />,
     children: [
-      { path: "/", element: <Home /> },
+      { index: true, element: <Home /> },
       {
         path: "/menu",
         element: <Menu />,

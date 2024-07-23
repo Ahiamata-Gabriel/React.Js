@@ -20,8 +20,8 @@ const router = createBrowserRouter(
       <Route path="/Cart" element={<Cart />} />
       <Route path="/CreateOrder" element={<CreateOrder />} />
       <Route path="/order/:orderId" element={<Order />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 function App() {
