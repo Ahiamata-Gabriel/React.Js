@@ -8,6 +8,9 @@ function getPosition() {
 }
 
 // ********* REdux Thunk ************
+//NB:   The  createAsyncThunk produces additional action types,
+//  The pending PROMISE state, one for the FULFILLED state and
+//  one for the REJECTED state
 export const fetchAddress = createAsyncThunk(
   //dont use Eg "getAddress" in thunks because the "get" keyword is used for selectors
   "user/fetchAddress",

@@ -10,7 +10,7 @@ const UpdateOrder = ({ order }) => {
 
   return (
     <fetcher.Form method="PATCH" className="text-right">
-      <Button type="primary">UpdateOrder</Button>
+      <Button type="primary">Make priority</Button>
     </fetcher.Form>
   );
 };
