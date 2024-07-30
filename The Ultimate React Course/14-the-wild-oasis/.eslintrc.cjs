@@ -18,6 +18,6 @@ module.exports = {
       { allowConstantExport: true },
     ],
     //my addOns
-    " eslint-disable no-unused-vars": "on",
+    // " eslint-disable no-unused-vars": "on",
   },
 };
