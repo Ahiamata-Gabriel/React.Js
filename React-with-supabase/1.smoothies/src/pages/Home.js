@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import supabase from "../config/supabaseClient";
+import SmoothiesCard from "../components/SmoothiesCard";
 
 const Home = () => {
   const [fetchError, setFetchError] = useState(null);
@@ -22,8 +23,20 @@ const Home = () => {
     fetchSmoothies();
   }, []);
 
-  return <div className="page home">{fetchError && <p>{fetchError}</p>}</div>;
+  return (
+    <div className="page home">
+      {fetchError && <p>{fetchError}</p>}
+      {smoothies && (
+        <div className="smoothies">
+          <div className="smoothie-grid">
+            {smoothies.map((smoothie) => (
+              <SmoothiesCard key={smoothie.id} smoothie={smoothie} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Home;
- 
