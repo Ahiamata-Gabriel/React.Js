@@ -1,8 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
+import { getCarbins } from "../../services/apiCarbins";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
-
   font-size: 1.4rem;
   background-color: var(--color-grey-0);
   border-radius: 7px;
@@ -23,3 +24,16 @@ const TableHeader = styled.header`
   color: var(--color-grey-600);
   padding: 1.6rem 2.4rem;
 `;
+
+const CabinTable = () => {
+  const cabins = useQuery({
+    queryKey: ["cabin"],
+    queryFn: getCarbins,
+  });
+
+  console.log(cabins);
+
+  return <div>CabinTable</div>;
+};
+
+export default CabinTable;
