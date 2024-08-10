@@ -16,7 +16,7 @@ import Bookings from "./pages/Bookings";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 600 * 1000,
+      staleTime: 60 * 1000,
     },
   },
 });
