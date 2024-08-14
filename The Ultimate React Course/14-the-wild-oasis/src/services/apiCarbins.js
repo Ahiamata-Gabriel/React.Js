@@ -12,11 +12,27 @@ export async function getCarbins() {
   return data;
 }
 
+export async function createCabin(newCabin) {
+  const { data, error } = await supabase
+    .from("cabins")
+    .insert([newCabin])
+    .select();
+
+  if (error) {
+    console.log(error);
+    throw new Error("Had problems creating carbins");
+  }
+
+  return data;
+}
+
 export async function deleteCabin(id) {
-  const { error } = await supabase.from("cabins").delete().eq("id", id);
+  const { error, data } = await supabase.from("cabins").delete().eq("id", id);
 
   if (error) {
     console.log(error);
     throw new Error("Had problems delete carbins");
   }
+
+  return data;
 }
