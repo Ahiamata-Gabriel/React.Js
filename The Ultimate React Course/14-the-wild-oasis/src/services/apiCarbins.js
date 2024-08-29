@@ -31,7 +31,7 @@ export async function deleteCabin(id) {
 
   if (error) {
     console.log(error);
-    throw new Error("Had problems delete carbins");
+    throw new Error("Had problems deleting carbins");
   }
 
   return data;
