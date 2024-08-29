@@ -12,6 +12,7 @@ export async function getCarbins() {
   return data;
 }
 
+// *** CREATING A NEW CARBIN  ***
 export async function createCabin(newCabin) {
   const { data, error } = await supabase
     .from("cabins")
