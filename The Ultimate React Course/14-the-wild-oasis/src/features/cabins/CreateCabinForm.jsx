@@ -73,18 +73,15 @@ function CreateCabinForm() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>
-      <FormRow>
-        <Label htmlFor="name">Cabin name</Label>
+      <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           type="text"
           id="name"
           {...register("name", { required: "This field is required" })}
         />
-        {errors?.name?.message && <Error>{errors.name.message}</Error>}
       </FormRow>
 
-      <FormRow>
-        <Label htmlFor="maxCapacity">Maximum capacity</Label>
+      <FormRow label="Maximum capacity" error={errors?.maxCapacity?.message}>
         <Input
           type="number"
           id="maxCapacity"
@@ -98,7 +95,7 @@ function CreateCabinForm() {
         />
       </FormRow>
 
-      <FormRow>
+      {/* <FormRow>
         <Label htmlFor="regularPrice">Regular price</Label>
         <Input
           type="number"
@@ -111,9 +108,9 @@ function CreateCabinForm() {
             },
           })}
         />
-      </FormRow>
+      </FormRow> */}
 
-      <FormRow>
+      {/* <FormRow>
         <Label htmlFor="discount">Discount</Label>
         <Input
           type="number"
@@ -126,9 +123,9 @@ function CreateCabinForm() {
               "Discount should be less than regular price",
           })}
         />
-      </FormRow>
+      </FormRow> */}
 
-      <FormRow>
+      {/* <FormRow>
         <Label htmlFor="description">Description for website</Label>
         <Textarea
           type="number"
@@ -136,7 +133,7 @@ function CreateCabinForm() {
           defaultValue=""
           {...register("description", { required: "This field is required" })}
         />
-      </FormRow>
+      </FormRow> */}
 
       <FormRow>
         <Label htmlFor="image">Cabin photo</Label>
