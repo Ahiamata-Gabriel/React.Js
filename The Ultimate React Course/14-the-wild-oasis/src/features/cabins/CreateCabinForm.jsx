@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createCabin } from "../../services/apiCarbins";
 import toast from "react-hot-toast";
+import FormRow from "../../ui/FormRow";
 
 const FormRow = styled.div`
   display: grid;
