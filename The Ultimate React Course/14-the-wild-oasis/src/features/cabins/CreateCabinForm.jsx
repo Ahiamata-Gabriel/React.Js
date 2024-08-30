@@ -104,8 +104,8 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow>
-        <Label htmlFor="image">Cabin photo</Label>
-        <FileInput id="image" accept="image/*" />
+        {/* <Label htmlFor="image">Cabin photo</Label>
+        <FileInput id="image" accept="image/*" /> */}
       </FormRow>
 
       <FormRow>
