@@ -95,7 +95,7 @@ function CreateCabinForm() {
         />
       </FormRow>
 
-      {/* <FormRow>
+      <FormRow>
         <Label htmlFor="regularPrice">Regular price</Label>
         <Input
           type="number"
@@ -108,9 +108,9 @@ function CreateCabinForm() {
             },
           })}
         />
-      </FormRow> */}
+      </FormRow>
 
-      {/* <FormRow>
+      <FormRow>
         <Label htmlFor="discount">Discount</Label>
         <Input
           type="number"
@@ -123,9 +123,9 @@ function CreateCabinForm() {
               "Discount should be less than regular price",
           })}
         />
-      </FormRow> */}
+      </FormRow>
 
-      {/* <FormRow>
+      <FormRow>
         <Label htmlFor="description">Description for website</Label>
         <Textarea
           type="number"
@@ -133,7 +133,7 @@ function CreateCabinForm() {
           defaultValue=""
           {...register("description", { required: "This field is required" })}
         />
-      </FormRow> */}
+      </FormRow>
 
       <FormRow>
         <Label htmlFor="image">Cabin photo</Label>
