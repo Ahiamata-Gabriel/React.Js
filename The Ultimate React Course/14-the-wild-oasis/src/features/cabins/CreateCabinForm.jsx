@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
@@ -13,7 +12,6 @@ import FormRow from "../../ui/FormRow";
 function CreateCabinForm() {
   const { register, handleSubmit, reset, getValues, formState } = useForm();
   const { errors } = formState;
-  console.log(errors);
 
   const queryClient = useQueryClient();
 
@@ -54,7 +52,7 @@ function CreateCabinForm() {
           type="number"
           id="maxCapacity"
           disabled={isCreating}
-          {...register("maxCapacitye", {
+          {...register("maxCapacity", {
             required: "This field is required",
             min: {
               value: 1,
