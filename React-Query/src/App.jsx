@@ -2,7 +2,7 @@ import "./App.css";
 import { useQuery } from "@tanstack/react-query";
 
 function App() {
-  const { data } = useQuery({
+  const { data, error, isLoading } = useQuery({
     queryKey: ["todo"],
     queryFn: () =>
       fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
@@ -10,7 +10,9 @@ function App() {
       ),
   });
 
-  console.log(data);
+  if (error) return <div>Failed to load data</div>;
+
+  if (isLoading) return <div>Data is loading</div>;
 
   return (
     <div className="App">
