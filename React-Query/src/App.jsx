@@ -1,9 +1,16 @@
 import "./App.css";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+} from "@tanstack/react-query";
 
 function App() {
+  const queryClient = useQueryClient();
+
   const { data, error, isLoading } = useQuery({
-    queryKey: ["todo"],
+    queryKey: ["posts"],
     queryFn: () =>
       fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
         res.json()
@@ -16,6 +23,9 @@ function App() {
         method: "POST",
         body: JSON.stringify(newPost),
       }).then((res) => res.json()),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
+    },
   });
 
   if (error || isError) return <div>Failed to load data</div>;
