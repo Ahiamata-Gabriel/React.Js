@@ -15,6 +15,7 @@ function App() {
       fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
         res.json()
       ),
+    staleTime: 60000,
   });
 
   const { mutate, isError, isPending, isSuccess } = useMutation({
