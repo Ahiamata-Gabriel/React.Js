@@ -33,7 +33,7 @@ function CreateCabinForm() {
   // this Error function does nothing to affect the code
   // its just here to for learning purposes
   const onError = (errors) => {
-    //console.log(errors);
+    console.log(errors);
   };
 
   return (
