@@ -27,7 +27,8 @@ function CreateCabinForm() {
   });
 
   function onSubmit(data) {
-    mutate(data);
+    //console.log(data);
+    //mutate(data);
   }
 
   // this Error function does nothing to affect the code
@@ -43,6 +44,8 @@ function CreateCabinForm() {
           type="text"
           id="name"
           disabled={isCreating}
+          //the name and id feild needs to match what is used in the
+          //various columns in supabase
           {...register("name", { required: "This field is required" })}
         />
       </FormRow>
@@ -107,7 +110,11 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow label="Cabin photo">
-        <FileInput id="image" accept="image/*" />
+        <FileInput
+          id="image"
+          accept="image/*"
+          {...register("image", { required: "Please provide image " })}
+        />
       </FormRow>
 
       <FormRow>
