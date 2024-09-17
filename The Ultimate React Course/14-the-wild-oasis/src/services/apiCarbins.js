@@ -30,9 +30,9 @@ export async function createCabin(newCabin) {
     console.log(error);
     throw new Error("Had problems creating carbins");
   }
-  //2. Upload cabin
+  //2. Upload image
   const { error: storageError } = await supabase.storage
-    .from("cabin-images")
+    .from("carbin-images")
     .upload(imageName, newCabin.image);
 
   //3. Delete the cabin IF there was an  error uploading  the image
