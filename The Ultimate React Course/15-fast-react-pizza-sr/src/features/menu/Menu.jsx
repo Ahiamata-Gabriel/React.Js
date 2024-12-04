@@ -4,8 +4,9 @@ function Menu() {
   return <h1>Menu</h1>;
 }
 
-const loader = () => {
-  return getMenu();
+export const loader = async () => {
+  const menu = await getMenu();
+  return menu;
 };
 
 export default Menu;
