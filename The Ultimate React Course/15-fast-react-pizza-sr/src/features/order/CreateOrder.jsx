@@ -39,7 +39,7 @@ function CreateOrder() {
     <div>
       <h2>Ready to order? Let's go!</h2>
 
-      <Form>
+      <Form method="POST">
         <div>
           <label>First Name</label>
           <input type="text" name="customer" required />
@@ -76,6 +76,10 @@ function CreateOrder() {
       </Form>
     </div>
   );
+}
+
+export function action() {
+  console.log("something");
 }
 
 export default CreateOrder;
