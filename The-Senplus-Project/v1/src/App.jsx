@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h1>Musashi</h1>
+      <h1>The Senplus Project</h1>
     </>
   );
 }
